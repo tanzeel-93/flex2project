@@ -1,0 +1,3314 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* overflow-x: hidden; */
+
+}
+
+
+
+html,
+body {
+    color: aliceblue;
+    background: #000;
+    font-family: Oswald, Arial, Helvetica, sans-serif;
+    /* outline: none; */
+    overflow-x: hidden;
+}
+
+.navi {
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    /* position: relative; */
+    height: 12vh;
+    /* margin-top: -8%; */
+    background-color: rgb(5, 5, 5);
+}
+
+.hamburgerr {
+    display: none;
+    position: absolute;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    /* overflow-x: hidden  ; */
+}
+
+:root {
+    --bar-width: 60px;
+    --bar-height: 8px;
+    --hamburger-gap: 6px;
+    --foreground: #a70505;
+    --background: rgb(0, 0, 0);
+    --hamburger-margin: 8px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: absolute;
+    top: var(--hamburger-margin);
+    left: var(--hamburger-margin);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.hamburger-menu:has(input:checked) {
+    --foreground: rgb(145, 0, 0);
+    --background: #000000;
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing),
+        rotate var(--animation-timing), translate var(--animation-timing),
+        background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+}
+
+.sidebar {
+    transition: translate var(--animation-timing);
+    translate: -100%;
+    padding: 0.5rem 1rem;
+    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+    background-color: var(--foreground);
+    color: var(--background);
+    max-width: 10rem;
+    min-height: 100vh;
+}
+
+.hamburger-menu:has(input:checked)+.sidebar {
+    translate: 0;
+}
+
+.logo img {
+
+    width: 150px;
+    position: absolute;
+    margin-top: 0%;
+    margin-left: -19px;
+}
+
+.homepage {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.616);
+    height: 100vh;
+    position: relative;
+}
+
+/* div.scroll-container {
+            background-color: #333;
+            margin-top: 8%;
+            /* position: absolute; 
+        
+        }
+
+        div.scroll-container img {
+            padding: 10px;
+        } */
+
+ul.navb {
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: lighter;
+    width: 771px;
+    font-family: Oswald, Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    margin-left: 6%;
+    /* padding-top: 25px; */
+    font-size: 16px;
+    margin-top: 2%;
+    position: absolute;
+    /* border-top: 1px solid rgb(165, 162, 162); */
+}
+
+ul.navb :hover {
+    color: red;
+    transition: 0.5s;
+}
+
+a {
+    text-decoration: none;
+    color: #faf9f9;
+    font-family: Oswald, Arial, Helvetica, sans-serif;
+    font-weight: 550;
+}
+
+a :hover {
+    color: rgb(163, 3, 3);
+    transition: 0.5s;
+}
+
+li {
+    display: flex;
+}
+
+.icon {
+    float: right;
+    font-size: 24px;
+    color: white;
+    margin-right: 2.5%;
+    margin-top: 2%;
+}
+
+.fa-solid,
+.fas {
+    font-weight: 900;
+    padding-left: 20px;
+}
+
+video {
+
+    /* width: 178.6%;
+*/
+    /* height: 100vh;  */
+    margin-left: 2.5%;
+    background-color: #1414148e;
+}
+
+h3.vdohead {
+    margin-top: -46%;
+    font-size: 35px;
+    background-color: #0000007e;
+    position: absolute;
+    width: 650px;
+    height: 10%;
+    margin-left: 25%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 3%;
+    color: whitesmoke;
+}
+
+/* p.videocont {
+    color: #ff3f3fde;
+    max-width: 46%;
+    font-size: 32px;
+    margin-left: 5%;
+    font-weight: 700;
+} */
+
+input#rea {
+    color: wheat;
+    background: rgba(240, 46, 46, 0);
+    padding: 16px 60px;
+    border-radius: 10px;
+    margin-top: 40%;
+    font-size: 16px;
+    position: absolute;
+    margin-left: -55%;
+}
+input#rea:hover{
+    background-color:#a70505;
+    transition: 1s;
+    color: black;
+}
+
+.secondpage {
+    width: 100%;
+    height: 150vh;
+    background: #000;
+}
+
+.detbox {
+    width: 90%;
+    margin-left: 5%;
+    height: 30vh;
+    display: flex;
+    /* justify-content: space-evenly; */
+    margin-top: -0%;
+    position: relative;
+    background-color: rgb(41, 40, 40);
+}
+
+select#cars {
+    /* margin-top: -20%; */
+    position: absolute;
+    padding: 1% 5%;
+    margin-left: 4%;
+    margin-top: 7%;
+    outline: none;
+    background: #f7cdcd;
+}
+
+select#bikes {
+    /* margin-top: -20%; */
+    margin-top: 7%;
+    position: absolute;
+    padding: 1% 5%;
+    outline: none;
+    margin-left: 52%;
+    background: #f7cdcd;
+}
+
+select#bikes2 {
+    margin-top: 7%;
+    outline: none;
+    /* margin-top: -20%; */
+    position: absolute;
+    background: #f7cdcd;
+    padding: 1% 5%;
+    margin-left: 29%;
+}
+
+h2#detbox {
+    padding: 1%;
+    margin-left: 3%;
+}
+
+input[type="submit"] {
+    FLOAT: RIGHT;
+    margin-right: 11%;
+    margin-top: -7.6%;
+    background: #a10000;
+    position: relative;
+
+    padding: 14px 76px;
+    color: wheat;
+    font-weight: 700;
+}
+
+input[type="button"] {
+    color: wheat;
+    background: rgb(240, 46, 46);
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 4%;
+    margin-left: 2%;
+}
+
+input[type="button"]:hover {
+    cursor: pointer;
+}
+
+h2.inven {
+    font-weight: 600;
+    color: white;
+    margin-left: 3%;
+    margin-top: 4%;
+    font-stretch: ultra-expanded;
+}
+
+p.inve {
+    float: right;
+    font-weight: 500;
+    margin-right: 3%;
+    font-size: larger;
+    margin-top: -22px;
+}
+
+p.inve:hover {
+    transition: 2s;
+    /* border-bottom:1px solid #f7cdcd; */
+    text-decoration-line: underline;
+    text-decoration-color: rgb(223, 106, 93);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.invenboxa {
+    width: 287px;
+    height: 75vh;
+    /* background: #ffffff47; */
+    margin-left: 5%;
+    margin-top: 7%;
+    z-index: 9999;
+}
+
+.invenboxa img {
+    width: 268px;
+    position: relative;
+    margin-left: 1%;
+    z-index: 9999;
+    margin-top: 4%;
+}
+
+.invenboxa :hover {
+    margin-top: -48px;
+    transition: 0.9s;
+    font-size: 19px;
+    color: #a10000;
+}
+
+p.retroa {
+    position: absolute;
+    margin-top: 25.5%;
+    font-size: 24px;
+    font-weight: bold;
+
+    color: #a10000;
+    margin-left: 2%;
+    /* z-index: -1; */
+}
+
+.invenboxb {
+    width: 287px;
+    height: 75vh;
+    /* background: #ffffff47; */
+    margin-left: 35%;
+    margin-top: -35%;
+    z-index: 9999;
+}
+
+.invenboxb img {
+    width: 268px;
+    position: relative;
+    margin-left: 1%;
+    z-index: 9999;
+    margin-top: 4%;
+}
+
+.invenboxb :hover {
+    margin-top: -48px;
+    transition: 0.9s;
+    box-shadow: 0px 40px 30px black inset;
+    font-size: 19px;
+    overflow: hidden;
+    color: #a10000;
+}
+
+p.retrob {
+    position: absolute;
+    margin-top: 25%;
+    font-size: 24px;
+    font-weight: bold;
+    color: #a10000;
+    margin-left: 2%;
+    /* z-index: -1; */
+}
+
+.invenboxc {
+    width: 287px;
+    height: 75vh;
+    /* background: #ffffff47; */
+    margin-left: 65%;
+    margin-top: -34.5%;
+    z-index: 9999;
+}
+
+.invenboxc img {
+    width: 268px;
+    position: relative;
+    margin-left: 1%;
+    z-index: 9999;
+    margin-top: 4%;
+}
+
+.invenboxc :hover {
+    margin-top: -48px;
+    transition: 0.9s;
+    box-shadow: inset;
+    font-size: 19px;
+    color: #a10000;
+}
+
+p.retroc {
+    position: absolute;
+    margin-top: 25%;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff0000cf;
+    margin-left: 2%;
+    /* z-index: -1; */
+}
+
+.thirdpage {
+    width: 100%;
+    height: 100vh;
+    background: #000;
+}
+
+h4#welcome {
+    font-size: 39px;
+    max-width: 97%;
+    margin-left: 9%;
+    margin-top: 1%;
+    padding: 2%;
+}
+
+p#welcomep {
+    display: none;
+}
+
+video#vdo {
+    /* margin-top: -15%; */
+    width: 100%;
+    /* height: 100vh; */
+    margin-left: 0%;
+}
+
+.fourthpage {
+    width: 100%;
+    height: 100vh;
+    margin-top: 28%;
+    background: url('/images/servicebg.jpg');
+
+    background-size: cover;
+}
+
+h3.serhead {
+    color: #db0000c7;
+    margin-top: 19%;
+    font-weight: 900;
+    font-size: 34px;
+    margin-left: 3%;
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.service {
+    width: 100%;
+    height: 100vh;
+    /* background: #00000063; */
+    margin-top: 0%;
+    background: rgb(0 0 0 / 52%);
+    position: absolute;
+}
+
+p.servpara {
+    margin-top: 23%;
+    font-size: 25px;
+    margin-left: 3%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    max-width: 64%;
+}
+
+input[type="button"]#contact {
+    margin-top: 33%;
+    margin-left: 3%;
+    padding: 1% 4%;
+    background: bottom;
+    color: white;
+    position: absolute;
+}
+
+input#contact:hover {
+    background-color: #ff0000;
+    transition: 2s;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+pre.contactt {
+    margin-top: 33%;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 13.2%;
+    font-size: 19px;
+}
+
+.fifthpage {
+    width: 100%;
+    height: 100vh;
+    background: #000;
+}
+
+h3.shop {
+    padding: 3% 3%;
+    font-size: 21px;
+}
+
+a#shops {
+    float: inline-end;
+    margin-right: 4%;
+    margin-top: -33px;
+}
+
+
+.boxa img {
+    width: 230px;
+}
+
+.boxa {
+    width: 230px;
+    margin-left: 3%;
+    cursor: pointer;
+    height: 61vh;
+}
+
+.boxa:hover {
+    scale: 103%;
+    transition: 1s;
+}
+
+pre#boxa {
+    margin-left: -76%;
+    font-size: 16px;
+}
+
+img#rating {
+    width: 120px;
+    margin-top: 265px;
+    position: absolute;
+    margin-left: -179px;
+}
+
+.boxb img {
+    width: 230px;
+}
+
+.boxb {
+    width: 230px;
+    margin-left: 23%;
+    margin-top: -28%;
+    cursor: pointer;
+    height: 61vh;
+}
+
+.boxb:hover {
+    scale: 103%;
+    transition: 1s;
+}
+
+pre#boxa {
+    margin-left: -76%;
+    font-size: 16px;
+}
+
+img#rating {
+    width: 120px;
+    margin-top: 265px;
+    position: absolute;
+    margin-left: -179px;
+}
+
+
+.boxd img {
+    width: 230px;
+}
+
+.boxd {
+    width: 230px;
+    cursor: pointer;
+    margin-left: 42%;
+    margin-top: -28%;
+    height: 61vh;
+}
+
+.boxd:hover {
+    scale: 103%;
+    transition: 1s;
+
+}
+
+pre#boxa {
+    margin-left: -76%;
+    font-size: 16px;
+}
+
+img#rating {
+    width: 120px;
+    margin-top: 265px;
+    position: absolute;
+    margin-left: -179px;
+
+}
+
+.boxg img {
+    width: 230px;
+}
+
+.boxg {
+    width: 230px;
+    margin-left: 61.5%;
+    margin-top: -28%;
+    height: 61vh;
+    cursor: pointer;
+}
+
+.boxg:hover {
+    scale: 103%;
+    transition: 1s;
+}
+
+pre#boxa {
+    margin-left: -76%;
+    font-size: 16px;
+}
+
+img#rating {
+    width: 120px;
+    margin-top: 265px;
+    position: absolute;
+    margin-left: -179px;
+}
+
+.boxh img {
+    width: 230px;
+}
+
+.boxh {
+    width: 230px;
+    margin-left: 81%;
+    margin-top: -28%;
+    height: 61vh;
+    cursor: pointer;
+}
+
+.boxh:hover {
+    scale: 103%;
+    box-shadow: 0px 1px 10px 5px rgba(255, 255, 255, 0.363);
+    transition: 1s;
+}
+
+pre#boxa {
+    margin-left: -76%;
+    font-size: 16px;
+}
+
+img#rating {
+    width: 120px;
+    margin-top: 265px;
+    position: absolute;
+    margin-left: -179px;
+}
+
+footer {
+    width: 100%;
+    height: 50vh;
+    background: #000000;
+}
+
+h2#foot {
+    margin-top: 9%;
+    /* position: absolute; */
+    max-width: 25%;
+    margin-left: 3%;
+}
+
+.detial {
+    margin: 4%;
+    width: 100%;
+}
+
+h4.abt {
+    font-size: 21px;
+    padding-bottom: 3px;
+    color: white;
+}
+
+ul.foot {
+    margin-left: 4%;
+    margin-top: 2%;
+    font-size: 14px;
+    color: #ffffffbd;
+}
+
+
+ul.links {
+    margin-left: 23%;
+    margin-top: -7%;
+    color: #ffffffb0;
+    font-size: 14px;
+}
+
+h4.linkk {
+    color: white;
+    font-size: 21px;
+    padding-bottom: 5px;
+}
+
+p.copy {
+    margin-left: 2%;
+    margin-top: 4%;
+}
+
+img#lastlogo {
+    width: 325px;
+    margin-left: 53%;
+    margin-top: -14%;
+    position: absolute;
+}
+
+h2.subs {
+    float: right;
+    margin-top: -6%;
+    margin-right: 6%;
+}
+
+input[type="search"] {
+    float: right;
+    margin-top: -3%;
+    margin-right: 13%;
+    padding: 3px;
+}
+
+input#submiit {
+    padding: 4px 15px;
+    margin-top: -40px;
+    margin-right: 107px;
+}
+
+.icons {
+    font-size: 23px;
+    float: right;
+    margin-top: 4%;
+    margin-right: 3%;
+}
+
+@media(max-width:1100px) {
+    .navi {
+        width: 100%;
+    }
+
+    video {
+        margin-left: 0.5%;
+        width: 100%;
+    }
+
+    .logo img {
+        width: 59px;
+        position: absolute;
+        margin-top: 1%;
+    }
+
+    h3.vdohead {
+        margin-top: -50%;
+        position: absolute;
+        margin-left: 26%;
+        margin-bottom: 3%;
+        color: antiquewhite;
+    }
+
+    p.videocont {
+        color: #ff6f6fde;
+        max-width: 58%;
+        position: absolute;
+        font-size: larger;
+        margin-left: 26%;
+        margin-top: -35%;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    input#rea {
+        margin-left: 47%;
+        position: absolute;
+        margin-top: -28%;
+    }
+
+    input[type="submit"] {
+        FLOAT: RIGHT;
+        margin-right: 6%;
+        margin-top: -8.6%;
+        background: #a10000;
+        position: relative;
+        padding: 10px 76px;
+        color: wheat;
+        font-weight: 700;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 75vh;
+        /* background: #ffffff47; */
+        margin-left: 35%;
+        margin-top: -37%;
+        z-index: 9999;
+    }
+
+    .invenboxc {
+        width: 287px;
+        height: 75vh;
+        /* background: #ffffff47; */
+        margin-left: 65%;
+        margin-top: -37.5%;
+        z-index: 9999;
+    }
+
+    .boxa {
+        width: 230px;
+        margin-left: 2%;
+        margin-top: 0%;
+        cursor: pointer;
+        height: 61vh;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 24%;
+        margin-top: -30.2%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxd {
+        width: 230px;
+        cursor: pointer;
+        margin-left: 45.8%;
+        margin-top: -27.7%;
+        height: 63vh;
+    }
+
+    .boxg {
+        width: 230px;
+        margin-left: 67.5%;
+        margin-top: -32%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    p.retro {
+        position: absolute;
+        margin-top: 31%;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff0000cf;
+        margin-left: 2%;
+        /* z-index: -1; */
+    }
+
+    .boxh {
+        display: none;
+    }
+
+    h2#foot {
+        margin-top: 3%;
+        max-width: 31%;
+        position: relative;
+        margin-left: 3%;
+    }
+
+    input[type="search"] {
+        float: right;
+        margin-top: -3.1%;
+        outline: none;
+        margin-right: 15%;
+        padding: 3px;
+    }
+
+    input#submiit {
+        padding: 4px 15px;
+        margin-top: -33px;
+        margin-right: 99px;
+    }
+
+    ul.links {
+        margin-left: 23%;
+        margin-top: -9%;
+        color: #ffffffb0;
+        font-size: 14px;
+    }
+    .logo img {
+    width: 100px;
+    position: absolute;
+    margin-top: 1%;
+}
+}
+
+@media(max-width:1050px) {
+    h3.vdohead {
+        margin-top: -48%;
+        position: absolute;
+        font-size: 33px;
+        margin-left: 26%;
+        margin-bottom: 3%;
+        color: antiquewhite;
+    }
+
+    input#rea {
+        margin-left: 43%;
+        position: absolute;
+        margin-top: -24%;
+    }
+
+    input[type="submit"] {
+        FLOAT: RIGHT;
+        margin-right: 6%;
+        margin-top: -9.4%;
+        background: #a10000;
+        position: relative;
+        padding: 10px 76px;
+        color: wheat;
+        font-weight: 700;
+
+
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 75vh;
+        /* background: #ffffff47; */
+        margin-left: 35%;
+        margin-top: -40%;
+        z-index: 9999;
+    }
+
+    .invenboxc {
+        width: 287px;
+        height: 75vh;
+        /* background: #ffffff47; */
+        margin-left: 65%;
+        margin-top: -39.2%;
+        z-index: 9999;
+    }
+
+    p.retro {
+        position: absolute;
+        margin-top: 33.2%;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff0000cf;
+        margin-left: 2%;
+        /* z-index: -1; */
+    }
+
+    \h4#welcome {
+        font-size: 32px;
+        max-width: 97%;
+        margin-left: 9%;
+        margin-top: 1%;
+        padding: 2%;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 25.5%;
+        margin-top: -31.9%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxd {
+        width: 230px;
+        cursor: pointer;
+        margin-left: 48.8%;
+        margin-top: -29.1%;
+        height: 63vh;
+    }
+
+    .boxg {
+        width: 230px;
+        margin-left: 72%;
+        margin-top: -32.9%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    input[type="search"] {
+        float: right;
+        margin-top: -2.9%;
+        outline: none;
+        margin-right: 15%;
+        padding: 3px;
+    }
+
+    input#submiit {
+        padding: 4px 15px;
+        margin-top: -31px;
+        margin-right: 99px;
+    }
+
+    h2#foot {
+        margin-top: 3%;
+        max-width: 32%;
+        position: relative;
+        margin-left: 3%;
+    }
+}
+
+@media(max-width:1000px) {
+    .logo img {
+        width: 128px;
+        margin-left: -20px;
+        position: absolute;
+        margin-top: 0%;
+    }
+
+    h3.vdohead {
+        margin-top: -48%;
+        position: absolute;
+        font-size: 33px;
+        margin-left: 18%;
+        margin-bottom: 3%;
+        color: antiquewhite;
+    }
+
+    input[type="submit"] {
+        FLOAT: RIGHT;
+        margin-right: 6%;
+        margin-top: -9.9%;
+        background: #a10000;
+        position: relative;
+        padding: 10px 67px;
+        color: wheat;
+        font-weight: 700;
+    }
+
+    .invenboxb img {
+        width: 268px;
+        position: relative;
+        margin-left: 1%;
+        z-index: 9999;
+        margin-top: 3.1%;
+    }
+
+    .invenboxc {
+        width: 287px;
+        height: 75vh;
+        /* background: #ffffff47; */
+        margin-left: 65%;
+        margin-top: -41%;
+        z-index: 9999;
+    }
+
+    p.retro {
+        position: absolute;
+        margin-top: 34.2%;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff0000cf;
+        margin-left: 2%;
+        /* z-index: -1; */
+    }
+
+    \h4#welcome {
+        font-size: 30px;
+        max-width: 97%;
+        margin-left: 9%;
+        margin-top: 1%;
+        padding: 2%;
+    }
+
+    .hamburgerr {
+        position: fixed;
+        display: block;
+        position: absolute;
+    }
+
+    .navi {
+        display: none;
+    }
+
+    video {
+        margin-left: 0.5%;
+        width: 99%;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .sidebar {
+        transition: translate var(--animation-timing);
+        translate: -100%;
+
+        padding: 0.5rem 5rem;
+        padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+        background-color: #00000050;
+        color: rgba(255, 255, 255, 0.363);
+        max-width: 30rem;
+        min-height: 100vh;
+        position: fixed;
+    }
+
+    .hamburger-menu:has(input:checked) {
+        --foreground: rgb(245 154 154);
+        --background: #000000;
+        width: 72px;
+        position: fixed;
+        height: 32px;
+    }
+
+    video#vdo {
+        margin-top: -35%;
+        width: 100%;
+        /* height: 100vh; */
+        margin-left: 0%;
+    }
+
+    .boxa img {
+        width: 208px;
+    }
+
+    .boxb img {
+        width: 208px;
+    }
+
+    .boxd img {
+        width: 208px;
+    }
+
+    .boxg img {
+        width: 208px;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 25.5%;
+        margin-top: -32.9%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxd {
+        width: 230px;
+        cursor: pointer;
+        margin-left: 48.8%;
+        margin-top: -30.1%;
+        height: 63vh;
+    }
+
+    .boxg {
+        width: 230px;
+        margin-left: 72%;
+        margin-top: -33.9%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    img#rating {
+        width: 120px;
+        margin-top: 243px;
+        position: absolute;
+        margin-left: -173px;
+    }
+
+    input#submiit {
+        padding: 3px 14px;
+        margin-top: -28px;
+        margin-right: 99px;
+    }
+
+    h2#foot {
+        margin-top: 3%;
+        max-width: 33%;
+        position: relative;
+        margin-left: 3%;
+    }
+
+    .detbox {
+        width: 90%;
+        margin-left: 5%;
+        height: 30vh;
+        display: flex;
+        /* justify-content: space-evenly; */
+        margin-top: -10%;
+        position: absolute;
+        background-color: rgb(41, 40, 40);
+    }
+
+    input[type="submit"] {
+        FLOAT: RIGHT;
+        margin-right: 6%;
+        margin-top: -3.9%;
+        background: #a10000;
+        position: relative;
+        padding: 10px 67px;
+        color: wheat;
+        font-weight: 700;
+    }
+
+    input[type="button"] {
+        color: wheat;
+        background: rgb(240, 46, 46);
+        padding: 8px;
+        border-radius: 10px;
+        margin-top: 7%;
+        margin-left: 2%;
+    }
+
+    .hamburgerr {
+        position: fixed;
+        display: block;
+        z-index: 9999;
+        /* position: absolute; */
+    }
+}
+
+@media(max-width:950px) {
+    select#cars {
+        /* margin-top: -20%; */
+        position: absolute;
+        padding: 1% 4%;
+        margin-left: 4%;
+        margin-top: 7%;
+        outline: none;
+        background: #f7cdcd;
+    }
+
+    select#bikes {
+        /* margin-top: -20%; */
+        margin-top: 7%;
+        position: absolute;
+        padding: 1% 4%;
+        outline: none;
+        margin-left: 52%;
+        background: #f7cdcd;
+    }
+
+    input[type="button"] {
+        color: wheat;
+        background: rgb(240, 46, 46);
+        padding: 8px;
+        border-radius: 10px;
+        margin-top: 9%;
+        margin-left: 2%;
+    }
+
+    .invenboxa img {
+        width: 260px;
+        position: relative;
+        margin-left: 1%;
+        z-index: 9999;
+        margin-top: 4%;
+    }
+
+    .invenboxb img {
+        width: 260px;
+        position: relative;
+        margin-left: 1%;
+        z-index: 9999;
+        margin-top: -3.9%;
+    }
+
+    .invenboxc img {
+        width: 260px;
+        position: relative;
+        margin-left: 1%;
+        z-index: 9999;
+        margin-top: -9%;
+    }
+
+    p.retro {
+        position: absolute;
+        margin-top: 30.2%;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff0000cf;
+        margin-left: 2%;
+        /* z-index: -1; */
+    }
+
+    video#vdo {
+        position: relative;
+        margin-top: -35%;
+        width: 100%;
+        /* height: 100vh; */
+        margin-left: 0%;
+        z-index: 999;
+    }
+
+    \h4#welcome {
+        font-size: 29px;
+        max-width: 97%;
+        margin-left: 9%;
+        margin-top: 1%;
+        padding: 2%;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 25.5%;
+        margin-top: -34.9%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxd {
+        width: 230px;
+        cursor: pointer;
+        margin-left: 48.8%;
+        margin-top: -32.1%;
+        height: 63vh;
+    }
+
+    .boxg {
+        width: 230px;
+        margin-left: 72%;
+        margin-top: -36.1%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    h2#foot {
+        margin-top: 3%;
+        max-width: 35%;
+        position: relative;
+        margin-left: 3%;
+    }
+
+    input[type="search"] {
+        float: right;
+        margin-top: -3%;
+        outline: none;
+        margin-right: 15%;
+        padding: 2px;
+    }
+
+    img#lastlogo {
+        width: 325px;
+        margin-left: 53%;
+        margin-top: -19%;
+        position: absolute;
+    }
+
+    .hamburgerr {
+        position: fixed;
+        display: block;
+        z-index: 9999;
+        /* position: absolute; */
+    }
+}
+
+@media(max-width:900px) {
+    video {
+        display: none;
+    }
+
+    h3.vdohead {
+        margin-top: 8%;
+        position: absolute;
+        font-size: 33px;
+        margin-left: 18%;
+        margin-bottom: 3%;
+        color: antiquewhite;
+    }
+
+    input#rea {
+        margin-left: 43%;
+        position: absolute;
+        margin-top: 39%;
+    }
+
+    .homepage {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.616);
+        height: 100vh;
+        position: relative;
+        background-position: center;
+        background-image: url(/images/bgslider2.jpg);
+    }
+
+    select#cars {
+        /* margin-top: -20%; */
+        position: absolute;
+        padding: 8px 21px;
+        margin-left: 4%;
+        margin-top: 7%;
+        outline: none;
+        background: #f7cdcd;
+    }
+
+    select#bikes2 {
+        margin-top: 7%;
+        outline: none;
+        /* margin-top: -20%; */
+        position: absolute;
+        background: #f7cdcd;
+        padding: 8px 32px;
+        margin-left: 26%;
+    }
+
+    select#bikes {
+        /* margin-top: -20%; */
+        margin-top: 7%;
+        position: absolute;
+        padding: 8px 16px;
+        outline: none;
+        margin-left: 49%;
+        background: #f7cdcd;
+    }
+
+    input[type="submit"] {
+        FLOAT: RIGHT;
+        margin-right: 7%;
+        margin-top: -3.9%;
+        background: #a10000;
+        position: relative;
+        padding: 8px 69px;
+        color: wheat;
+        font-weight: 700;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 74vh;
+        /* background: #ffffff47; */
+        margin-left: 35%;
+        margin-top: -45.2%;
+        z-index: 9999;
+    }
+
+    .invenboxc {
+        width: 287px;
+        height: 75vh;
+        /* background: #ffffff47; */
+        margin-left: 65%;
+        margin-top: -43%;
+        z-index: 9999;
+    }
+
+    .invenboxa {
+        width: 287px;
+        height: 79vh;
+        /* background: #ffffff47; */
+        margin-left: 5%;
+        margin-top: 7%;
+        z-index: 9999;
+    }
+
+    \h4#welcome {
+        font-size: 25px;
+        max-width: 97%;
+        margin-left: 7%;
+        margin-top: 0%;
+        padding: 2%;
+    }
+
+    video#vdo {
+        display: none;
+    }
+
+    .thirdpage {
+        width: 100%;
+        height: 100vh;
+        background-color: #020202a9;
+        background-image: url(/images/bgslide1.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .welcome {
+        background: rgb(0 0 0 / 52%);
+        height: 100vh;
+    }
+
+    \h4#welcome {
+        font-size: 27px;
+        max-width: 97%;
+        color: #970000;
+        margin-left: 8%;
+        margin-top: 1%;
+        padding: 2%;
+    }
+
+    p#welcomep {
+        font-size: 22px;
+        /* max-width: 105%; */
+        color: #ffffff;
+        text-align: center;
+        font-weight: 400;
+        display: block;
+        margin-top: 6%;
+    }
+
+    h3.serhead {
+        color: #db0000c7;
+        margin-top: 16%;
+        font-weight: 900;
+        font-size: 33px;
+        margin-left: 3%;
+        position: absolute;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    p.servpara {
+        margin-top: 21%;
+        font-size: 24px;
+        margin-left: 4%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        max-width: 64%;
+    }
+
+    pre.contactt {
+        margin-top: 33%;
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        margin-left: 13.2%;
+        font-size: 17px;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 26.5%;
+        margin-top: -36.9%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxd {
+        width: 230px;
+        cursor: pointer;
+        margin-left: 51.2%;
+        margin-top: -33.8%;
+        height: 63vh;
+    }
+
+    .boxg {
+        width: 230px;
+        margin-left: 75.5%;
+        margin-top: -38.1%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    h2#foot {
+        margin-top: 3%;
+        max-width: 36%;
+        position: relative;
+        margin-left: 3%;
+        font-size: 23px;
+    }
+
+    input#submiit {
+        padding: 2px 14px;
+        margin-top: -26px;
+        margin-right: 99px;
+    }
+
+    ul.links {
+        margin-left: 23%;
+        margin-top: -10%;
+        color: #ffffffb0;
+        font-size: 14px;
+    }
+
+    .invenboxc :hover {
+        margin-top: -79px;
+        transition: 0.9s;
+        box-shadow: inset;
+        font-size: 19px;
+        color: #a10000;
+    }
+
+    p.retroc {
+        position: absolute;
+        margin-top: 33%;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff0000cf;
+        margin-left: 2%;
+        /* z-index: -1; */
+    }
+
+    .invenboxb :hover {
+        margin-top: -75px;
+        transition: 0.9s;
+        box-shadow: 0px 40px 30px black inset;
+        font-size: 19px;
+        overflow: hidden;
+        color: #a10000;
+    }
+
+    p.retro {
+        position: absolute;
+        margin-top: 34.2%;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ff0000cf;
+        margin-left: 2%;
+        /* z-index: -1; */
+    }
+
+}
+
+@media(max-width:850px) {
+    h3.vdohead {
+        margin-top: 6%;
+        position: absolute;
+        font-size: 30px;
+        margin-left: 18%;
+        margin-bottom: 3%;
+        color: antiquewhite;
+    }
+
+    input#rea {
+        margin-left: 40%;
+        position: absolute;
+        margin-top: 39%;
+    }
+
+    input[type="button"] {
+        color: wheat;
+        background: rgb(240, 46, 46);
+        padding: 8px;
+        border-radius: 10px;
+        margin-top: 10%;
+        margin-left: 2%;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 74vh;
+        /* background: #ffffff47; */
+        margin-left: 37%;
+        margin-top: -48.2%;
+        z-index: 9999;
+    }
+
+    .invenboxc {
+        width: 287px;
+        height: 75vh;
+        /* background: #ffffff47; */
+        margin-left: 68%;
+        margin-top: -46%;
+        z-index: 9999;
+    }
+
+    .fifthpage {
+        width: 100%;
+        height: 160vh;
+        background: #000;
+    }
+
+    .boxa {
+        width: 230px;
+        margin-left: 5%;
+        margin-top: 0%;
+        cursor: pointer;
+        height: 61vh;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 34.5%;
+        margin-top: -38.9%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxd {
+        width: 230px;
+        cursor: pointer;
+        margin-left: 64.2%;
+        margin-top: -35.8%;
+        height: 63vh;
+    }
+
+    .boxg {
+        width: 230px;
+        margin-left: 34.5%;
+        margin-top: -2.1%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    h2#foot {
+        margin-top: 3%;
+        max-width: 39%;
+        position: relative;
+        margin-left: 3%;
+        font-size: 22px;
+    }
+
+    input[type="search"] {
+        float: right;
+        margin-top: -4%;
+        outline: none;
+        margin-right: 14%;
+        padding: 2px;
+    }
+
+    input#submiit {
+        padding: 2px 16px;
+        margin-top: -33px;
+        margin-right: 75px;
+    }
+
+    h2.subs {
+        float: right;
+        margin-top: -8%;
+        margin-right: 6%;
+    }
+
+    ul.links {
+        margin-left: 23%;
+        margin-top: -11%;
+        color: #ffffffb0;
+        font-size: 14px;
+    }
+}
+
+@media(max-width:800px) {
+    .homepage {
+        width: 105%;
+        background: rgba(0, 0, 0, 0.616);
+        height: 100vh;
+        position: relative;
+        background-position: center;
+        background-image: url(/images/bgslider2.jpg);
+    }
+
+    select#cars {
+        /* margin-top: -20%; */
+        position: absolute;
+        padding: 8px 15px;
+        margin-left: 4%;
+        margin-top: 7%;
+        outline: none;
+        background: #f7cdcd;
+    }
+
+    select#bikes2 {
+        margin-top: 7%;
+        outline: none;
+        /* margin-top: -20%; */
+        position: absolute;
+        background: #f7cdcd;
+        padding: 8px 28px;
+        margin-left: 26%;
+    }
+
+    select#bikes {
+        /* margin-top: -20%; */
+        margin-top: 7%;
+        position: absolute;
+        padding: 8px 11px;
+        outline: none;
+        margin-left: 49%;
+        background: #f7cdcd;
+    }
+
+    input[type="submit"] {
+        FLOAT: RIGHT;
+        margin-right: 7%;
+        margin-top: -3.9%;
+        background: #a10000;
+        position: relative;
+        padding: 9px 61px;
+        color: wheat;
+        font-weight: 700;
+    }
+
+    .detbox {
+        height: 28vh;
+    }
+
+    .secondpage {
+        width: 100%;
+        height: 200vh;
+        background: #000;
+    }
+
+    .invenboxa {
+        width: 287px;
+        height: 79vh;
+        /* background: #ffffff47; */
+        margin-left: 13%;
+        margin-top: 7%;
+        z-index: 9999;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 74vh;
+        /* background: #ffffff47; */
+        margin-left: 58%;
+        margin-top: -52.2%;
+        z-index: 9999;
+    }
+
+    .invenboxc {
+        width: 287px;
+        height: 75vh;
+        /* background: #ffffff47; */
+        margin-left: 38%;
+        margin-top: 3%;
+        z-index: 9999;
+    }
+
+    .thirdpage {
+        width: 102%;
+        height: 100vh;
+        background-color: #020202a9;
+        background-image: url(/images/bgslide1.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .fourthpage {
+        width: 102%;
+        height: 100vh;
+        background: url(/images/servicebg.jpg);
+        background-size: cover;
+    }
+
+    .service {
+        width: 102%;
+        height: 100vh;
+        /* background: #00000063; */
+        margin-top: 0%;
+        background: rgb(0 0 0 / 52%);
+        position: absolute;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 34.5%;
+        margin-top: -41.9%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxd {
+        width: 230px;
+        cursor: pointer;
+        margin-left: 64.2%;
+        margin-top: -38.8%;
+        height: 63vh;
+    }
+
+    .boxg {
+        width: 230px;
+        margin-left: 17.5%;
+        margin-top: -1.1%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    .boxh {
+        width: 230px;
+        margin-left: 53%;
+        display: block;
+        margin-top: -42%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    .boxh img {
+        width: 205px;
+    }
+
+    input#submiit {
+        padding: 2px 16px;
+        margin-top: -31px;
+        margin-right: 69px;
+    }
+
+    .thirdpage {
+        width: 105%;
+        height: 100vh;
+        background-color: #020202a9;
+        background-image: url(/images/bgslide1.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    ul.links {
+        margin-left: 23%;
+        margin-top: -12%;
+        color: #ffffffb0;
+        font-size: 14px;
+    }
+
+    .fourthpage {
+        width: 105%;
+        margin-top: -2%;
+        height: 100vh;
+        background: url(/images/servicebg.jpg);
+        background-size: cover;
+    }
+
+    input[type="button"]#contact {
+        margin-top: 40%;
+        margin-left: 3%;
+        padding: 1% 4%;
+        background: bottom;
+        color: white;
+        position: absolute;
+    }
+
+    pre.contactt {
+        margin-top: 38%;
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        margin-left: 13.2%;
+        font-size: 17px;
+    }
+
+    .service {
+        width: 105%;
+        height: 100vh;
+        /* background: #00000063; */
+        margin-top: 0%;
+        background: rgb(0 0 0 / 52%);
+        position: absolute;
+    }
+}
+
+@media(max-width:750px) {
+    h3.vdohead {
+        margin-top: 8%;
+        position: absolute;
+        font-size: 30px;
+        margin-left: 12%;
+        margin-bottom: 3%;
+        color: antiquewhite;
+    }
+
+    select#cars {
+        padding: 8px 13px;
+    }
+
+    select#bikes2 {
+        padding: 8px 24px;
+    }
+
+    select#bikes {
+        padding: 8px 8px;
+    }
+
+    input[type="submit"] {
+        padding: 9px 53px;
+    }
+
+    input[type="button"] {
+        margin-top: 12%;
+    }
+
+    .detbox {
+        height: 28vh;
+        width: 93%;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 74vh;
+        /* background: #ffffff47; */
+        margin-left: 58%;
+        margin-top: -54.2%;
+        z-index: 9999;
+    }
+
+    .thirdpage {
+        width: 105%;
+        height: 100vh;
+        background-color: #020202a9;
+        background-image: url(/images/bgslide1.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .service {
+        width: 105%;
+        height: 100vh;
+        /* background: #00000063; */
+        margin-top: 0%;
+        background: rgb(0 0 0 / 52%);
+        position: absolute;
+    }
+
+    .fourthpage {
+        width: 105%;
+        height: 100vh;
+        background: url(/images/servicebg.jpg);
+        background-size: cover;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 37.5%;
+        margin-top: -45.5%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxd {
+        width: 230px;
+        cursor: pointer;
+        margin-left: 69.2%;
+        margin-top: -41.8%;
+        height: 63vh;
+    }
+
+    .boxh {
+        width: 230px;
+        margin-left: 53%;
+        display: block;
+        margin-top: -45.5%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    .boxg {
+        width: 230px;
+        margin-left: 17.5%;
+        margin-top: -0.1%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    p.retroa {
+        position: absolute;
+        margin-top: 34.5%;
+        font-size: 24px;
+        font-weight: bold;
+        color: #a10000;
+        margin-left: 2%;
+        /* z-index: -1; */
+    }
+
+    input#submiit {
+        padding: 2px 16px;
+        margin-top: -29px;
+        margin-right: 62px;
+    }
+
+    p.retroa {
+        margin-top: 43.5%;
+    }
+
+    p.retrob {
+        margin-top: 40%;
+    }
+
+    p.retroc {
+        margin-top: 39%;
+    }
+
+    .thirdpage {
+        width: 105%;
+    }
+
+    input#submiit {
+        padding: 2px 16px;
+        margin-top: -28px;
+        margin-right: 62px;
+    }
+
+    .icons {
+        font-size: 23px;
+        float: right;
+        margin-top: 4%;
+        margin-right: 1%;
+    }
+
+    h2#foot {
+        margin-top: 3%;
+        max-width: 42%;
+        position: relative;
+        margin-left: 3%;
+        font-size: 21px;
+    }
+
+    img#lastlogo {
+        width: 325px;
+        margin-left: 53%;
+        margin-top: -24%;
+        position: absolute;
+    }
+
+    input[type="submit"] {
+        padding: 9px 53px;
+        margin: -3.2% 5%;
+    }
+}
+
+@media(max-width:700px) {
+    input[type="submit"] {
+        padding: 9px 53px;
+        margin: -3.5% 4%;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 74vh;
+        /* background: #ffffff47; */
+        margin-left: 58%;
+        margin-top: -59.2%;
+        z-index: 9999;
+    }
+
+    p.retrob {
+        margin-top: 44%;
+    }
+
+    .homepage {
+        width: 100%;
+        background: url(/images/bgslider2.jpg) center center rgba(0, 0, 0, 0.616);
+        height: 100vh;
+        position: relative;
+    }
+
+    .thirdpage {
+        width: 100%;
+    }
+
+    .fourthpage {
+        width: 100%;
+        height: 100vh;
+        background: url(/images/servicebg.jpg);
+        background-size: cover;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 37.5%;
+        margin-top: -48%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxd {
+        width: 230px;
+        cursor: pointer;
+        margin-left: 69.2%;
+        margin-top: -43.8%;
+        height: 63vh;
+    }
+
+    .boxh {
+        width: 230px;
+        margin-left: 53%;
+        display: block;
+        margin-top: -48.1%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    hr {
+        width: 100%;
+    }
+
+    .icons {
+        font-size: 23px;
+        float: right;
+        margin-top: 8%;
+        margin-right: 1%;
+    }
+
+    p.copy {
+        margin-left: 2%;
+        margin-top: 9%;
+    }
+
+    img#lastlogo {
+        width: 325px;
+        margin-left: 48%;
+        margin-top: -30%;
+        position: absolute;
+    }
+
+    ul.links {
+        margin-left: 23%;
+        margin-top: -14%;
+        color: #ffffffb0;
+        font-size: 14px;
+    }
+
+    input#submiit {
+        padding: 2px 16px;
+        margin-top: -27px;
+        margin-right: 49px;
+    }
+
+    h3.vdohead {
+        margin-top: 8%;
+        position: absolute;
+        font-size: 30px;
+        margin-left: 4%;
+        padding-left: 8%;
+        margin-bottom: 3%;
+        color: antiquewhite;
+    }
+}
+
+@media(max-width:650px) {
+    .homepage {
+        width: 105%;
+        background: url(/images/3bgimg.jpg) center center rgba(0, 0, 0, 0.616);
+        height: 100vh;
+        position: relative;
+    }
+
+    select#cars {
+        padding: 8px 8px;
+    }
+
+    select#bikes2 {
+        padding: 8px 19px;
+    }
+
+    select#bikes {
+        padding: 8px 1px;
+    }
+
+    .detbox {
+        height: 25vh;
+        width: 93%;
+    }
+
+    .invenboxa {
+        width: 287px;
+        height: 79vh;
+        /* background: #ffffff47; */
+        margin-left: 9%;
+        margin-top: 7%;
+        z-index: 9999;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 74vh;
+        /* background: #ffffff47; */
+        margin-left: 56%;
+        margin-top: -62.2%;
+        z-index: 9999;
+    }
+
+    .boxa {
+        width: 230px;
+        margin-left: 2%;
+        margin-top: 0%;
+        cursor: pointer;
+        height: 61vh;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 36.5%;
+        margin-top: -53%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxd {
+        width: 230px;
+        cursor: pointer;
+        margin-left: 71%;
+        margin-top: -48.5%;
+        height: 63vh;
+    }
+
+    .boxh {
+        width: 230px;
+        margin-left: 53%;
+        display: block;
+        margin-top: -52.4%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    h2#foot {
+        margin-top: 3%;
+        max-width: 42%;
+        position: relative;
+        margin-left: 3%;
+        font-size: 19px;
+    }
+
+    h2.subs {
+        float: right;
+        margin-top: -8%;
+        margin-right: 6%;
+        font-size: 20px;
+    }
+
+    input#submiit {
+        padding: 2px 16px;
+        margin-top: -24px;
+        margin-right: 49px;
+    }
+
+    img#lastlogo {
+        width: 300px;
+        margin-left: 48%;
+        margin-top: -30%;
+        position: absolute;
+    }
+
+    input[type="submit"] {
+        padding: 9px 48px;
+        margin: -3.5% 3%;
+    }
+
+    .thirdpage {
+        width: 105%;
+    }
+
+    .fourthpage {
+        width: 105%;
+        height: 100vh;
+        background: url(/images/servicebg.jpg);
+        background-size: cover;
+    }
+
+    h3.serhead {
+        color: #db0000c7;
+        margin-top: 16%;
+        font-weight: 900;
+        font-size: 26px;
+        margin-left: 3%;
+        position: absolute;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    pre.contactt {
+        margin-top: 42%;
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        margin-left: 13.2%;
+        font-size: 17px;
+    }
+
+    input[type="button"]#contact {
+        margin-top: 44%;
+        margin-left: 3%;
+        padding: 1% 4%;
+        background: bottom;
+        color: white;
+        position: absolute;
+    }
+
+    p#welcomep {
+        font-size: 20px;
+        /* max-width: 105%; */
+        color: #ffffff;
+        text-align: center;
+        font-weight: 400;
+        display: block;
+        margin-top: 6%;
+    }
+
+}
+
+@media(max-width:600px) {
+    h3.vdohead {
+        font-size: 25px;
+    }
+
+    .homepage {
+        width: 113%;
+        background: url(/images/bg4img.jpg) center center rgba(0, 0, 0, 0.616);
+        background-size: cover;
+        height: 100vh;
+        position: relative;
+    }
+
+    h3.vdohead {
+        font-size: 25px;
+        background: transparent;
+        color: black;
+        margin: 4% 17%;
+    }
+
+    .detbox {
+        height: 25vh;
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        padding: 9px 46px;
+        margin: -3.4% -4%;
+    }
+
+    select#bikes {
+        padding: 8px 3px;
+        margin: 6.5% 50%;
+    }
+
+    select#bikes2 {
+        padding: 8px 19px;
+        margin: 6.5% 27%;
+    }
+
+    select#cars {
+        padding: 8px 8px;
+        margin: 6.5% 4.2%;
+    }
+
+    input[type="button"] {
+        margin-top: 15%;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 74vh;
+        /* background: #ffffff47; */
+        margin-left: 56%;
+        margin-top: -69.2%;
+        z-index: 9999;
+    }
+
+    .thirdpage {
+        width: 113%;
+    }
+
+    .fourthpage {
+        width: 113%;
+        height: 100vh;
+        background: url(/images/servicebg.jpg);
+        background-size: cover;
+    }
+
+    .service {
+        width: 113%;
+        height: 100vh;
+        /* background: #00000063; */
+        margin-top: 0%;
+        background: rgb(0 0 0 / 52%);
+        position: absolute;
+    }
+
+    input[type="button"]#contact {
+        margin-top: 52%;
+        margin-left: 3%;
+        padding: 1% 4%;
+        background: bottom;
+        color: white;
+        position: absolute;
+    }
+
+    pre.contactt {
+        margin-top: 49%;
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        margin-left: 13.2%;
+        font-size: 17px;
+    }
+
+    .boxd {
+        display: none;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 65.5%;
+        margin-top: -58%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxa {
+        width: 230px;
+        margin-left: 17%;
+        margin-top: 0%;
+        cursor: pointer;
+        height: 61vh;
+    }
+
+    .boxg {
+        width: 230px;
+        margin-left: 17.5%;
+        margin-top: 5.9%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    .boxh {
+        width: 230px;
+        margin-left: 66%;
+        display: block;
+        margin-top: -57.4%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    h2#foot {
+        margin-top: 3%;
+        max-width: 42%;
+        position: relative;
+        margin-left: 3%;
+        font-size: 17px;
+    }
+
+    input#submiit {
+        padding: 2px 16px;
+        margin-top: -23px;
+        margin-right: -221px;
+    }
+
+    hr {
+        width: 112%;
+        margin-top: 17px;
+    }
+
+    ul.links {
+        margin-left: 23%;
+        margin-top: -16%;
+        color: #ffffffb0;
+        font-size: 14px;
+    }
+
+    img#lastlogo {
+        width: 300px;
+        margin-left: 48%;
+        margin-top: -36%;
+        position: absolute;
+    }
+
+    p.copy {
+        margin-left: 2%;
+        margin-top: 14%;
+    }
+
+    .icons {
+        font-size: 23px;
+        float: right;
+        margin-top: 13%;
+        margin-right: -11%;
+    }
+}
+
+@media(max-width:550px) {
+    html, body {
+        color: aliceblue;
+        background: #000;
+        font-family: Oswald, Arial, Helvetica, sans-serif;
+        /* outline: none; */
+        width: 111%;
+        overflow-x: hidden;
+    }
+    .homepage {
+        width: 123%;
+        background: url(/images/bg4img.jpg) center center rgba(0, 0, 0, 0.616);
+        background-size: cover;
+        height: 100vh;
+        position: relative;
+    }
+
+    h3.vdohead {
+        font-size: 25px;
+        background: transparent;
+        color: #fff6f6;
+        margin: 17% 8%;
+    }
+
+    .detbox {
+        height: 25vh;
+        width: 113%;
+    }
+
+    input[type="submit"] {
+        padding: 9px 46px;
+        margin: -3% -18%;
+    }
+
+    select#bikes {
+        padding: 8px 3px;
+        margin: 6.5% 51%;
+    }
+
+    input[type="button"] {
+        margin-top: 19%;
+    }
+
+    p.inve {
+        float: right;
+        font-weight: 500;
+        margin-right: -14%;
+        font-size: larger;
+        margin-top: -22px;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 74vh;
+        /* background: #ffffff47; */
+        margin-left: 64%;
+        margin-top: -76.2%;
+        z-index: 9999;
+    }
+
+    .thirdpage {
+        width: 122%;
+        height: 100vh;
+        background-color: #020202a9;
+        background-image: url(/images/bikee2img.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .fourthpage {
+        width: 122%;
+        margin-top: 0px;
+        height: 100vh;
+        background: url(/images/servicebg.jpg);
+        background-size: cover;
+    }
+
+    .service {
+        width: 123%;
+        height: 100vh;
+        /* background: #00000063; */
+        margin-top: 0%;
+        background: rgb(0 0 0 / 52%);
+        position: absolute;
+    }
+
+    a#shops {
+        float: inline-end;
+        margin-right: -11%;
+        margin-top: -33px;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 65.5%;
+        margin-top: -62%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxh {
+        width: 230px;
+        margin-left: 66%;
+        display: block;
+        margin-top: -61.4%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    h2.subs {
+        float: right;
+        margin-top: -7%;
+        margin-right: 6%;
+        font-size: 21px;
+    }
+
+    input[type="search"] {
+        float: right;
+        margin-top: -2%;
+        outline: none;
+        margin-right: 14%;
+        padding: 2px;
+    }
+
+    input#submiit {
+        padding: 2px 16px;
+        margin-top: -10px;
+        margin-right: -221px;
+    }
+    input[type="submit"] {
+        padding: 9px 46px;
+        margin: -2% 5%;
+    }
+}
+
+@media(max-width:500px) {
+    html, body {
+        color: aliceblue;
+        background: #000;
+        font-family: Oswald, Arial, Helvetica, sans-serif;
+        /* outline: none; */
+        width: 111%;
+        overflow-x: hidden;
+    }
+    .homepage {
+        width: 134%;
+        background: url(/images/bg5img.webp) center center rgba(0, 0, 0, 0.616);
+        background-size: cover;
+        height: 100vh;
+        position: relative;
+    }
+
+    .detbox {
+        height: 25vh;
+        width: 124%;
+    }
+
+    input[type="submit"] {
+        padding: 9px 46px;
+        margin: -2% 5%;
+    }
+
+    p.inve {
+        float: right;
+        font-weight: 500;
+        margin-right: -25%;
+        font-size: larger;
+        margin-top: -22px;
+    }
+
+    input[type="button"] {
+        margin-top: 21%;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 74vh;
+        /* background: #ffffff47; */
+        margin-left: 70%;
+        margin-top: -83.2%;
+        z-index: 9999;
+    }
+
+    .thirdpage {
+        width: 134%;
+        height: 100vh;
+        background-color: #020202a9;
+        background-image: url(/images/bikee2img.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    \h4#welcome {
+        font-size: 24px;
+        max-width: 97%;
+        color: #d30000;
+        margin-left: 1%;
+        margin-top: 2%;
+        padding: 2%;
+    }
+
+    .fourthpage {
+        width: 135%;
+        margin-top: 0px;
+        height: 100vh;
+        background: url(/images/serviceimg2.jpg);
+        background-size: cover;
+    }
+
+    .service {
+        width: 135%;
+        height: 100vh;
+        /* background: #00000063; */
+        margin-top: 0%;
+        background: rgb(0 0 0 / 52%);
+        position: absolute;
+    }
+
+    input[type="button"]#contact {
+        margin-top: 71%;
+        margin-left: 6%;
+        padding: 2% 5%;
+        background: bottom;
+        color: white;
+        position: absolute;
+    }
+
+    pre.contactt {
+        margin-top: 69%;
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        margin-left: 22.2%;
+        font-size: 17px;
+    }
+
+    a#shops {
+        float: inline-end;
+        margin-right: -26%;
+        margin-top: -35px;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 72.5%;
+        margin-top: -69%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .boxh {
+        width: 230px;
+        margin-left: 74%;
+        display: block;
+        margin-top: -68.4%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    h2.subs {
+        float: right;
+        margin-top: -10%;
+        margin-right: -28%;
+        font-size: 21px;
+    }
+
+    input[type="search"] {
+        float: right;
+        margin-top: -2%;
+        outline: none;
+        margin-right: -11%;
+        padding: 2px;
+    }
+
+    input#submiit {
+        padding: 2px 16px;
+        margin-top: -9px;
+        margin-right: -221px;
+    }
+
+    h2#foot {
+        margin-top: 3%;
+        max-width: 57%;
+        position: relative;
+        margin-left: 3%;
+        font-size: 17px;
+    }
+
+    hr {
+        width: 133%;
+        margin-top: 17px;
+    }
+
+    ul.links {
+        margin-left: 23%;
+        margin-top: -20%;
+        color: #ffffffb0;
+        font-size: 14px;
+    }
+
+    img#lastlogo {
+        width: 300px;
+        margin-left: 48%;
+        margin-top: -44%;
+        position: absolute;
+    }
+
+    .icons {
+        font-size: 23px;
+        float: right;
+        margin-top: 13%;
+        margin-right: -29%;
+    }
+
+    html,
+    body {
+        color: aliceblue;
+        background: #000;
+        font-family: Oswald, Arial, Helvetica, sans-serif;
+        /* outline: none; */
+        width: 117%;
+        overflow-x: hidden;
+    }
+
+    input[type="submit"] {
+        padding: 9px 35px;
+        margin: -1.2% 9%;
+    }
+
+    input#rea {
+        margin-left: 26%;
+        position: absolute;
+        margin-top: 39%;
+    }
+
+    .secondpage {
+        width: 100%;
+        height: 300vh;
+        background: #000;
+    }
+
+    .invenboxb {
+        width: 287px px;
+        height: 74vh;
+        /* background: #ffffff47; */
+        margin-left: 28%;
+        margin-top: 6.8%;
+        z-index: 9999;
+    }
+
+    .invenboxa {
+        width: 287px;
+        height: 79vh;
+        /* background: #ffffff47; */
+        margin-left: 28%;
+        margin-top: 7%;
+        z-index: 9999;
+    }
+
+    .invenboxc {
+        width: 287px;
+        height: 75vh;
+        /* background: #ffffff47; */
+        margin-left: 28%;
+        margin-top: 3%;
+        z-index: 9999;
+    }
+
+    .thirdpage {
+        width: 108%;
+        height: 100vh;
+        background-color: #020202a9;
+        background-image: url(/images/bikee2img.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .boxa {
+        width: 230px;
+        margin-left: 7%;
+        margin-top: 0%;
+        cursor: pointer;
+        height: 61vh;
+    }
+
+    .boxb {
+        width: 230px;
+        margin-left: 56.5%;
+        margin-top: -50%;
+        cursor: pointer;
+        height: 56vh;
+    }
+
+    .fifthpage {
+        width: 100%;
+        height: 186vh;
+        background: #000;
+    }
+
+    .boxg {
+        width: 230px;
+        margin-left: 7.5%;
+        margin-top: 5.9%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    .boxh {
+        width: 230px;
+        margin-left: 57%;
+        display: block;
+        margin-top: -50.4%;
+        height: 61vh;
+        cursor: pointer;
+    }
+
+    .fourthpage {
+        width: 100%;
+        margin-top: 0px;
+        height: 100vh;
+        background: url(/images/serviceimg2.jpg);
+        background-size: cover;
+    }
+
+    .service {
+        width: 137%;
+        height: 100vh;
+        /* background: #00000063; */
+        margin-top: 0%;
+        background: rgb(0 0 0 / 52%);
+        position: absolute;
+    }
+
+    h2#foot {
+        max-width: 39%;
+    }
+
+    h2.subs {
+        float: right;
+        margin-top: -7%;
+        margin-right: 6%;
+        font-size: 21px;
+    }
+
+    input[type="search"] {
+        margin-right: 16%;
+    }
+
+    input#submiit {
+        padding: 2px 16px;
+        margin-top: -13px;
+        margin-right: -221px;
+    }
+
+    ul.links {
+        margin-top: -14%;
+    }
+    .icons {
+        font-size: 23px;
+        float: right;
+        margin-top: 13%;
+        margin-right: 2%;
+    }
+    p.inve {
+        margin-right: 3%;
+    }
+}
+@media(max-width:450px){
+    h3.vdohead {
+        font-size: 25px;
+        background: transparent;
+        color: #fff6f6;
+        margin: 17% 1%;
+    }select#cars {
+        padding: 8px 5px;
+        font-size: 12px;
+        margin: 9.5% 3.2%;
+    }
+    select#bikes2 {
+        padding: 8px 14px;
+        font-size: 12px;
+        margin: 9.5% 25%;
+    }
+    select#bikes {
+        padding: 8px 1px;
+        font-size: 12px;
+        margin: 9.5% 47%;
+    }
+    input[type="submit"] {
+        padding: 9px 34px;
+        margin: 0.9% 9%;
+    }
+    a#shops {
+        float: inline-end;
+        margin-right: 4%;
+        margin-top: -35px;
+    }
+    .boxb {
+        width: 230px;
+        margin-left: 56.5%;
+        margin-top: -56%;
+        cursor: pointer;
+        height: 56vh;
+    }.boxh {
+        width: 230px;
+        margin-left: 57%;
+        display: block;
+        margin-top: -56.4%;
+        height: 61vh;
+        cursor: pointer;
+    }input#submiit {
+        margin-top: -12px;
+    }ul.links {
+        margin-top: -16%;
+    }
+    img#lastlogo {
+        width: 300px;
+        margin-left: 53%;
+        margin-top: -48%;
+        position: absolute;
+    }
+}
+@media(max-width:400px){
+    h3.vdohead {
+        font-size: 23px;}
+        input[type="submit"] {
+            padding: 9px 34px;
+            margin: 0.9% 5%;
+        }
+        .detbox {
+            height: 25vh;
+            width: 127%;
+        }
+        select#cars {
+            padding: 9px 0px;
+            font-size: 11px;
+            margin: 9.5% 3.2%;
+        }
+        select#bikes2 {
+            padding: 9px 6px;
+            font-size: 11px;
+            margin: 9.5% 24%;
+        }
+        select#bikes {
+            padding: 9px 0px;
+            font-size: 11px;
+            margin: 9.5% 44%;
+        }
+        input[type="submit"] {
+            padding: 10px 34px;
+            margin: 0.9% 8%;
+        }
+        h4#welcome {
+            font-size: 19px;
+        }
+        p#welcomep {
+            margin-left: 10%;
+            max-width: 66%;
+        }
+        .service {
+    margin-top: -4%;
+}
+h3.serhead {
+    margin-top: 8%;
+    max-width: 100%;
+    font-size: 24px;
+}
+.boxb {
+    width: 230px;
+    margin-left: 56.5%;
+    margin-top: -65%;
+    cursor: pointer;
+    height: 56vh;
+}
+.boxh {
+    width: 230px;
+    margin-left: 57%;
+    display: block;
+    margin-top: -64.4%;
+    height: 61vh;
+    cursor: pointer;
+}
+h2#foot {
+    max-width: 46%;
+}
+h2.subs {
+    float: right;
+    margin-top: -9%;
+    margin-right: 2%;
+    font-size: 21px;
+}
+input[type="search"] {
+    margin-right: 10%;
+}
+input#submiit {
+    margin-top: -10px;
+}
+ul.links {
+    margin-top: -18%;
+}
+img#lastlogo {
+    width: 300px;
+    margin-left: 58%;
+    margin-top: -59%;
+    position: absolute;
+}
+html, body {
+    color: aliceblue;
+    background: #000;
+    font-family: Oswald, Arial, Helvetica, sans-serif;
+    /* outline: none; */
+    width: 123%;
+    overflow-x: hidden;
+}
+input[type="submit"] {
+    padding: 10px 34px;
+    margin: 0.9% 14%;
+}
+.service {
+    margin-top: 0%;
+    width: 150%;
+}
+.boxg {
+    width: 230px;
+    margin-left: 7.5%;
+    margin-top: 10.9%;
+    height: 61vh;
+    cursor: pointer;
+}
+.boxh {
+    width: 230px;
+    margin-left: 57%;
+    display: block;
+    margin-top: -58.4%;
+    height: 61vh;
+    cursor: pointer;
+}
+.detbox {
+    height: 21vh;
+    width: 142%;
+}
+input[type="submit"] {
+    padding: 9px 34px;
+    margin: 1.9% 3%;
+}
+select#bikes {
+    padding: 9px 0px;
+    font-size: 11px;
+    margin: 9.5% 48%;
+}
+select#bikes2 {
+    padding: 9px 6px;
+    font-size: 11px;
+    margin: 9.5% 27%;
+}
+p.retroa {
+    margin-top: 103.5%;
+}
+p.retrob {
+    margin-top: 94%;
+}
+p.retroc {
+    margin-top: 91%;
+}
+input[type="button"]#contact {
+    margin-top: 102%;
+    margin-left: 6%;
+    padding: 2% 5%;
+    background: bottom;
+    color: white;
+    position: absolute;
+}
+pre.contactt {
+    margin-top: 98%;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    margin-left: 22.2%;
+    font-size: 17px;
+}
+.boxb {
+    width: 230px;
+    margin-left: 54.5%;
+    margin-top: -67%;
+    cursor: pointer;
+    height: 56vh;
+}
+.boxg {
+    width: 230px;
+    margin-left: 6.5%;
+    margin-top: 7.9%;
+    height: 61vh;
+    cursor: pointer;
+}
+.boxh {
+    width: 230px;
+    margin-left: 55%;
+    display: block;
+    margin-top: -66.4%;
+    height: 61vh;
+    cursor: pointer;
+}
+p.copy {
+    margin-left: 2%;
+    font-size: 13px;
+    margin-top: 14%;
+}
+ul.links {
+    margin-top: -19%;
+}
+.service {
+    margin-top: 0%;
+    width: 151%;
+}
+}
